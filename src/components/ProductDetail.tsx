@@ -80,7 +80,7 @@ function ProductDetail() {
               <Box mt={2}>
                 <Rating
                   name="read-only"
-                  value={product.rating}
+                  value={parseFloat(product.rating)}
                   precision={0.5}
                   readOnly
                 />

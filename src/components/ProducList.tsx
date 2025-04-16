@@ -1,22 +1,22 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { Product } from "../utils/Interface";
 import Rating from "../components/Rating";
-import {
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Box,
-} from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 function ProductList() {
   const { products } = useLoaderData() as { products: Product[] };
 
   return (
-    <Grid container spacing={3} padding={3}>
+    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 3, p: 3 }}>
       {products.map((p: Product) => (
-        <Grid item xs={12} sm={6} md={4} lg={3} key={p.id}>
+        <Box
+          key={p.id}
+          sx={{
+            width: { xs: "100%", sm: "48%", md: "23%" },
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <Link to={`/product/${p.id}`} style={{ textDecoration: "none" }}>
             <Card
               sx={{
@@ -25,7 +25,7 @@ function ProductList() {
                 flexDirection: "column",
                 justifyContent: "space-between",
                 minHeight: 400,
-                width: 450,
+                width: "100%",
               }}
             >
               <CardMedia
@@ -55,9 +55,9 @@ function ProductList() {
               </Box>
             </Card>
           </Link>
-        </Grid>
+        </Box>
       ))}
-    </Grid>
+    </Box>
   );
 }
 

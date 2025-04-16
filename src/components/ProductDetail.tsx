@@ -8,7 +8,6 @@ import {
   Typography,
   CircularProgress,
   Box,
-  Grid,
   Chip,
   Rating,
 } from "@mui/material";
@@ -36,8 +35,8 @@ function ProductDetail() {
   return (
     <Box display="flex" justifyContent="center" mt={5}>
       <Card sx={{ maxWidth: 800, boxShadow: 5, p: 2 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+        <Box display="flex" flexDirection={{ xs: "column", md: "row" }} gap={2}>
+          <Box flex={1}>
             <CardMedia
               component="img"
               height="300"
@@ -45,8 +44,8 @@ function ProductDetail() {
               alt={product.title}
               sx={{ objectFit: "contain", borderRadius: 2 }}
             />
-          </Grid>
-          <Grid item xs={12} md={6}>
+          </Box>
+          <Box flex={1}>
             <CardContent>
               <Typography variant="h5" component="div" gutterBottom>
                 {product.title}
@@ -87,8 +86,8 @@ function ProductDetail() {
                 />
               </Box>
             </CardContent>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Card>
     </Box>
   );
